@@ -1,0 +1,14 @@
+.movie {
+  width: 30rem;
+  height: 38rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.movie img {
+  border-radius: 4px;
+}
+
+.movie:hover {
+  filter: brightness(0.5);
+}

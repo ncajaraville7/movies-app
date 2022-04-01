@@ -1,0 +1,26 @@
+.paginador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.paginador button {
+  padding: 1rem;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  background-color: #121821;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.paginador button:hover {
+  background-color: #1218218a;
+}
+
+.paginador p {
+  font-weight: bold;
+  font-size: 1.8rem;
+}

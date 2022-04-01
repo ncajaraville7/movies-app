@@ -1,0 +1,21 @@
+.filters {
+  margin-top: 1rem;
+}
+
+.filters h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.filters__form select {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 5px;
+  outline: none;
+  margin-right: 15px;
+}
+
+.filters__form option {
+  color: #000;
+}
