@@ -66,3 +66,20 @@
   border: 1px solid #fff;
   padding: 1rem;
 }
+
+.btn-favorite {
+  background-color: transparent;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-favorite:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  cursor: pointer;
+}
