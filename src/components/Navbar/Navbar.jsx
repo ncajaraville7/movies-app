@@ -16,7 +16,9 @@ const Navbar = () => {
           <Link to="/">
             <li>Inicio</li>
           </Link>
-          <li>Favoritos</li>
+          <li>
+            <Link to="/favorites">Favoritos</Link>
+          </li>
           <Link to="/searchMovie">
             <li>Buscar</li>
           </Link>
