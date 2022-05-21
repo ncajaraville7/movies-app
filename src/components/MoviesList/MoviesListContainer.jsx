@@ -13,12 +13,12 @@ const MoviesListContainer = () => {
   const [movies, setMovies] = useState([]);
   const [is_loading, setIs_loading] = useState(false);
   const [pages, setPages] = useState(1);
+  const [leakedMovies, setLeakedMovies] = useState([]);
 
   const fetchMovies = async () => {
     setIs_loading(true);
     const data = await getMovies(pages);
     setMovies(data.results);
-    // console.log(data.results[0].genre_ids);
     setIs_loading(false);
   };
 
@@ -28,12 +28,14 @@ const MoviesListContainer = () => {
 
   return (
     <>
-      <Filters movies={movies} setMovies={setMovies} />
+      <Filters movies={movies} setLeakedMovies={setLeakedMovies} />
       <div className="movies-list ">
         {is_loading ? (
           <Spinner />
-        ) : (
+        ) : leakedMovies.length < 1 ? (
           movies.map((movie) => <Movies key={movie.id} {...movie} />)
+        ) : (
+          leakedMovies.map((movie) => <Movies key={movie.id} {...movie} />)
         )}
       </div>
       <Paginador pages={pages} setPages={setPages} />

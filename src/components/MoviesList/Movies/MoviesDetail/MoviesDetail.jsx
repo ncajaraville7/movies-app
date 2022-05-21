@@ -50,6 +50,7 @@ const MoviesDetail = () => {
       setTimeout(() => {
         setSuccess(false);
       }, 2000);
+      return;
     } else {
       setError(true);
       setTimeout(() => {

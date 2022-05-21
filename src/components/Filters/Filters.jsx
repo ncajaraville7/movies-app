@@ -4,8 +4,8 @@ import './Filters.css';
 
 import { getGenres } from '../../utils/api';
 
-const Filters = ({ movies, setMovies }) => {
-  const [filter, setFilter] = useState(0);
+const Filters = ({ movies, setLeakedMovies }) => {
+  const [movieCategory, setMovieCategory] = useState('');
   const [filters, setFilters] = useState([]);
 
   const fetchGenres = async () => {
@@ -18,21 +18,25 @@ const Filters = ({ movies, setMovies }) => {
   }, []);
 
   useEffect(() => {
-    if (filter) {
-      const movieFilter = movies.filter(
-        (movie) => movie.genre_ids[1] === Number(filter)
+    if (movieCategory !== '') {
+      const movieFilter = movies.filter((movie) =>
+        movie.genre_ids.includes(Number(movieCategory))
       );
-      console.log(movieFilter);
-      setMovies(movieFilter);
+      setLeakedMovies(movieFilter);
+    } else {
+      setLeakedMovies(movies);
     }
-  }, [filter]);
+  }, [movieCategory]);
 
   return (
     <div className="filters container">
       <h2>Filtrar por :</h2>
       <form className="filters__form">
-        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-          <option>Genero</option>
+        <select
+          value={movieCategory}
+          onChange={(e) => setMovieCategory(e.target.value)}
+        >
+          <option value="">Genero</option>
           {filters.map((filter) => (
             <option value={filter.id} key={filter.id}>
               {filter.name}
