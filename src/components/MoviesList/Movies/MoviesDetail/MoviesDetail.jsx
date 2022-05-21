@@ -8,10 +8,14 @@ import { getDetails } from '../../../../utils/api';
 import { FavoritesContext } from '../../../../context/FavoritesContext';
 
 import Spinner from '../../../Spinner/Spinner';
+import Error from '../../../Alerts/Error';
+import Success from '../../../Alerts/Success';
 
 const MoviesDetail = () => {
   const [movieDetail, setMovieDetail] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const { movieId } = useParams();
 
@@ -42,8 +46,15 @@ const MoviesDetail = () => {
 
     if (!movieRepeated) {
       context.setFavorites([...context.favorites, movieFavorite]);
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 2000);
     } else {
-      console.log('ya esta esa pelicula agregada');
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
     }
   };
 
@@ -80,6 +91,8 @@ const MoviesDetail = () => {
             <button className="btn-favorite" onClick={handleClick}>
               Agregar Favoritos
             </button>
+            {error && <Error>La pelicula ya se encuentra en favoritos</Error>}
+            {success && <Success>Pelicula agregada a favoritos</Success>}
           </div>
         </div>
       )}

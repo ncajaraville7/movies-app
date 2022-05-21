@@ -1,0 +1,25 @@
+.error {
+  padding: 15px;
+  background-color: rgb(194, 0, 0);
+  border-radius: 4px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  animation: entry 0.8s;
+}
+
+.error p {
+  color: #f2f2f2;
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+}
+
+@keyframes entry {
+  from {
+    transform: translateX(-800px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
