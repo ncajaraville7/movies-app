@@ -24,7 +24,7 @@ const Filters = ({ movies, setLeakedMovies }) => {
       );
       setLeakedMovies(movieFilter);
     } else {
-      setLeakedMovies(movies);
+      setLeakedMovies([]);
     }
   }, [movieCategory]);
 
